@@ -98,7 +98,7 @@ alias  ngrok=~/ngrok
 # DART STUFF                                    #
 #################################################
 # Path to Dart 2 executables
-export DART_2_PATH='/usr/local/opt/bin/dart'
+export DART_2_PATH='/Users/luisgomez/.asdf/installs/dart/2.4.0/dart-sdk/bin'
 # Or, if you have an old install of Dart 1 that didn't use dart@1:
 # export DART_2_PATH=/usr/local/Cellar/dart/2.1.0/bin/
 
@@ -147,7 +147,7 @@ export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 
 export EC2_USER="ubuntu"
 export EC2_KEYFILE_PATH=~/.ssh/luisgomez.pem
-export EC2_INSTANCE_ID="${cat ~/secrets/EC@_INSTANCE_ID}"
+export EC2_INSTANCE_ID=$(cat ~/secrets/EC2_INSTANCE_ID)
 
 # Starts the ec2 instance.
 # Requires aws cli (you'll need a keypair in AWS IAM console if you don't already have one)
@@ -290,6 +290,11 @@ function cdconfig() {
 	esac
 }
 
+function update_config() {
+  cdconfig
+  cp ~/.zshenv zsh/.zshenv
+}
+
 alias w_screensaver="/Users/luisgomez/miniconda3/envs/scrape/bin/python /Users/luisgomez/Documents/code/py/w_screensaver/stock_price_screensaver_mac.py"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
@@ -297,16 +302,16 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 # Workiva onboarding-tools
 export PATH="$PATH:$HOME/onboarding-tools/bin"
-export ARTIFACTORY_PRO_USER="${cat ~/secrets/ARTIFACTORY_PRO_USER}"
-export ARTIFACTORY_PRO_PASS="${cat ~/secrets/ARTIFACTORY_PASS}"
-export ARTIFACTORY_PRO_BACKUP_PASS="${cat ~/secrets/ARTIFACTORY_PRO_BACKUP_PASS}"
+export ARTIFACTORY_PRO_USER=$(cat ~/secrets/ARTIFACTORY_PRO_USER)
+export ARTIFACTORY_PRO_PASS=$(cat ~/secrets/ARTIFACTORY_PRO_PASS)
+export ARTIFACTORY_PRO_BACKUP_PASS=$(cat ~/secrets/ARTIFACTORY_PRO_BACKUP_PASS)
 
 # workiva docker
 alias dc=docker-compose
 export PATH="$PATH:/usr/local/bin/VBoxManage"
-export DOCKER_UNAME="${cat ~/secrets/DOCKER_UNAME}"
-export DRYDOCK_PASS="${cat ~/secrets/drydock_pass}"
-export DRYDOCK_PROD_PASS="${cat ~/secrets/drydock_prod_pass}"
+export DOCKER_UNAME=$(cat ~/secrets/DOCKER_UNAME)
+export DRYDOCK_PASS=$(cat ~/secrets/drydock_pass)
+export DRYDOCK_PROD_PASS=$(cat ~/secrets/drydock_prod_pass)
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
