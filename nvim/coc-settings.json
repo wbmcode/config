@@ -1,0 +1,25 @@
+{
+  "languageserver": {
+    "dart": {
+      "command": "dart_language_server",
+      "args": [],
+      "filetypes": ["dart"]
+    },
+    "javascript": {
+      "command": "node ~/javascript-typescript-langserver-2.11.3/lib/language-server-stdio",
+      "args": ["--strict"],
+      "filetypes": ["js", "ts"],
+      "settings": {
+      }
+    },
+    "cquery": {
+      "command": "cquery",
+      "args": ["--log-file=/tmp/cq.log"],
+      "revealOutputChannelOn": "never",
+      "filetypes": ["c", "cpp"],
+      "initializationOptions": {
+        "cacheDirectory": "/tmp/cquery"
+      }
+    }
+  }
+}

@@ -1,0 +1,2 @@
+the og background color for conemu onedark theme is:
+#282c34

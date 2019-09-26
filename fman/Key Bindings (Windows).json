@@ -1,0 +1,4 @@
+[
+	{"keys": ["ctrl+l"], "command": "go_to"},
+	{"keys": ["F2"], "command": "rename"}
+]
