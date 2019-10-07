@@ -51,7 +51,8 @@ echo -e "\e[2;49;37m
 "
 # stupid shit
 alias bbbbbrrrrrrraaaaaammmmmmp='mpv ~/sounds/inception.mp3 &>/dev/null'
-alias airhorn='mpv ~/sounds/airhorn.mp3 &>/dev/null'
+alias bruh='mpv ~/sounds/bruh.mp3 &> /dev/null'
+alias airhorn='mpv ~/sounds/airhorn.mp3 &> /dev/null'
 alias airhorns='mpv ~/sounds/airhorns.mp3 &>/dev/null'
 
 alias vim=nvim
