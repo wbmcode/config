@@ -1,12 +1,5 @@
 # Path to your oh-my-zsh installation.
-case `uname` in
-  Darwin)
-    export ZSH="/Users/luisgomez/.oh-my-zsh"
-    ;;
-  *)
-    export ZSH="/home/whoislewys/.oh-my-zsh"
-    ;;
-esac
+export ZSH=$HOME/.oh-my-zsh
 
 export FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD="zcda-kipz-kuhh-pbah"
 ZSH_THEME="theone"
