@@ -70,7 +70,7 @@ alias mm_local_android="cd ~/Documents/code/mood_api && idea . & mma"
 alias avd="~/Library/Android/sdk/emulator/emulator -avd Pixel_2_API_28 -netdelay none -netspeed full"
 alias mma="cd ~/Documents/code/mood_mobile && idea . && avd & disown && react-native run-android"
 alias firefox="open -a /Applications/Firefox.app"
-alias yt="source activate yt"
+alias yt="/Users/luisgomez/miniconda3/envs/yt/bin/python /Users/luisgomez/miniconda3/envs/yt/bin/mpsyt"
 alias bfg="java -jar /Applications/bfg-1.13.0.jar $*"
 alias jshell="~/jdk-12.jdk/Home/bin/jshell"
 export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -123,7 +123,7 @@ alias dartium='export DARTIUM_EXPIRATION_TIME=1577836800; DART_FLAGS="--checked 
 alias dartium_unsafe='export DARTIUM_EXPIRATION_TIME=1577836800; DART_FLAGS="--checked --load_deferred_eagerly" /usr/local/opt/dart@1/Chromium.app/Contents/MacOS/Chromium --user-data-dir=~/.dartiumtmp --disable-web-security'
 alias ddev='pub run dart_dev'
 alias ddev_local='IAM_HOST=http://localhost:8001 MSG_FRONTEND_URL=http://localhost:8100 ddev serve'
-alias pubcleanlock='git ls-files pubspec.lock --error-unmatch &>/dev/null && echo "Not removing pubspec.lock - it is tracked" || (rm pubspec.lock && echo "Removed pubspec.lock")'
+alias pubcleanlock='rm pubspec.lock && echo "Removed pubspec.lock"'
 alias wac="dartium & disown && wgo && cd doc_plat_client && make serve-dartium"
 
 
