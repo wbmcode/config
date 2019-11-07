@@ -313,3 +313,8 @@ export DRYDOCK_PROD_PASS=$(cat ~/secrets/drydock_prod_pass)
 # asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+
+# Wk signals tests
+export TEST_URL=$(cat ~/secrets/ATTACHMENT_CLIENT_SIGS_TEST_URL)
+export TEST_USERNAME=$(cat ~/secrets/ATTACHMENT_CLIENT_SIGS_TEST_USERNAME)
+export TEST_PASSWORD=$(cat ~/secrets/ATTACHMENT_CLIENT_SIGS_TEST_PASSWORD)
