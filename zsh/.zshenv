@@ -49,7 +49,7 @@ alias airhorn='mpv ~/sounds/airhorn.mp3 &> /dev/null'
 alias airhorns='mpv ~/sounds/airhorns.mp3 &>/dev/null'
 
 alias vim=nvim
-alias vget="cd ~/.vim_runtime/my_plugins && git submodule add $1"
+export VIM_RUNTIME=$HOME/.config/nvim/.vim_runtime
 alias r="/usr/local/bin/R"
 alias pg_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
@@ -318,3 +318,6 @@ export DRYDOCK_PROD_PASS=$(cat ~/secrets/drydock_prod_pass)
 export TEST_URL=$(cat ~/secrets/ATTACHMENT_CLIENT_SIGS_TEST_URL)
 export TEST_USERNAME=$(cat ~/secrets/ATTACHMENT_CLIENT_SIGS_TEST_USERNAME)
 export TEST_PASSWORD=$(cat ~/secrets/ATTACHMENT_CLIENT_SIGS_TEST_PASSWORD)
+
+alias rancher=/Users/luisgomez/rancher/rancher
+ 
