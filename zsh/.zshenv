@@ -42,14 +42,37 @@ echo -e "\e[2;49;37m
                           /   (_(__(_/_)_
                          (_____
 "
-# stupid shit
+######################
+# misc exports
+#######################
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export PATH="$PATH:$HOME/miniconda3/bin"
+export GOPATH=$HOME/go
+export PATH=$PATH:~/flutter/bin
+export PATH="$PATH":"$GOPATH/bin"
+export PATH=$PATH:~/.pub-cache/bin
+export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
+export EC2_USER="ubuntu"
+export EC2_KEYFILE_PATH=~/.ssh/luisgomez.pem
+export EC2_INSTANCE_ID=$(cat ~/secrets/EC2_INSTANCE_ID)
+export VIM_RUNTIME=$HOME/.config/nvim/.vim_runtime
+
+###############
+# stupid shit #
+###############
 alias bbbbbrrrrrrraaaaaammmmmmp='mpv ~/sounds/inception.mp3 &>/dev/null'
 alias bruh='mpv ~/sounds/bruh.mp3 &> /dev/null'
 alias airhorn='mpv ~/sounds/airhorn.mp3 &> /dev/null'
 alias airhorns='mpv ~/sounds/airhorns.mp3 &>/dev/null'
 
+#############################
+# slightly less stupid shit #
+#############################
 alias vim=nvim
-export VIM_RUNTIME=$HOME/.config/nvim/.vim_runtime
 alias r="/usr/local/bin/R"
 alias pg_start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 alias pg_stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
@@ -73,21 +96,11 @@ alias firefox="open -a /Applications/Firefox.app"
 alias yt="/Users/luisgomez/miniconda3/envs/yt/bin/python /Users/luisgomez/miniconda3/envs/yt/bin/mpsyt"
 alias bfg="java -jar /Applications/bfg-1.13.0.jar $*"
 alias jshell="~/jdk-12.jdk/Home/bin/jshell"
-export ANDROID_HOME=$HOME/Library/Android/sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH="$PATH:$HOME/miniconda3/bin"
-export GOPATH=$HOME/go
-export PATH=$PATH:~/flutter/bin
-export PATH="$PATH":"$GOPATH/bin"
-export PATH=$PATH:~/.pub-cache/bin
-
 alias idea="open -a /Applications/IntelliJ\ IDEA.app"
 alias gitlog="git log --oneline"
 alias gitlit="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
 alias  ngrok=~/ngrok
+
 #################################################
 # DART STUFF                                    #
 #################################################
@@ -126,7 +139,6 @@ alias ddev_local='IAM_HOST=http://localhost:8001 MSG_FRONTEND_URL=http://localho
 alias pubcleanlock='rm pubspec.lock && echo "Removed pubspec.lock"'
 alias wac="dartium & disown && wgo && cd doc_plat_client && make serve-dartium"
 
-
 function d1() {
   asdf global dart 1.24.3
 }
@@ -134,14 +146,11 @@ function d1() {
 function d2() {
   asdf global dart 2.4.0
 }
-# end dart stuff
 
-# imagemagick
-export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 
-export EC2_USER="ubuntu"
-export EC2_KEYFILE_PATH=~/.ssh/luisgomez.pem
-export EC2_INSTANCE_ID=$(cat ~/secrets/EC2_INSTANCE_ID)
+####################
+# Helper Functions #
+####################
 
 # Starts the ec2 instance.
 # Requires aws cli (you'll need a keypair in AWS IAM console if you don't already have one)
@@ -180,7 +189,6 @@ function update_ec2_address() {
     sleep 1
 }
 
-# TODO: pare these ports down
 function tunnel_ec2() {
  echo "Connecting to EC2 instance and setting up SSH..."
  ssh -i ${EC2_KEYFILE_PATH} -X -t -p 22 ${EC2_USER}@$EC2_INSTANCE -L 4222:localhost:4222 -L 8100:localhost:8100 -L 3306:localhost:3306 -L 8000:localhost:8000 -L 8001:localhost:8001 -L 8888:localhost:8888 -L 3307:localhost:3307 -L 3308:localhost:3308 -L 9090:localhost:9090 -L 9999:localhost:9999 -L 8090:localhost:80
@@ -252,7 +260,7 @@ function react-native-clean() {
 }
 
 # download a workiva repo
-wclone () {
+function wclone () {
   git clone git@github.com:Workiva/$1
 }
 
@@ -289,33 +297,34 @@ function update_config() {
   cp ~/.zshenv zsh/.zshenv
 }
 
-alias w_screensaver="/Users/luisgomez/miniconda3/envs/scrape/bin/python /Users/luisgomez/Documents/code/py/w_screensaver/stock_price_screensaver_mac.py"
-
-# Workiva onboarding-tools
+############################
+# Workiva onboarding-tools #
+############################
 export PATH="$PATH:$HOME/onboarding-tools/bin"
 export ARTIFACTORY_PRO_USER=$(cat ~/secrets/ARTIFACTORY_PRO_USER)
 export ARTIFACTORY_PRO_PASS=$(cat ~/secrets/ARTIFACTORY_PRO_PASS)
 export ARTIFACTORY_PRO_BACKUP_PASS=$(cat ~/secrets/ARTIFACTORY_PRO_BACKUP_PASS)
-
-# workiva docker
+# wk docker setup
 alias dc=docker-compose
 export PATH="$PATH:/usr/local/bin/VBoxManage"
 export DOCKER_UNAME=$(cat ~/secrets/DOCKER_UNAME)
 export DRYDOCK_PASS=$(cat ~/secrets/drydock_pass)
 export DRYDOCK_PROD_PASS=$(cat ~/secrets/drydock_prod_pass)
+# Wk signals tests
+export TEST_URL=$(cat ~/secrets/ATTACHMENT_CLIENT_SIGS_TEST_URL)
+export TEST_USERNAME=$(cat ~/secrets/ATTACHMENT_CLIENT_SIGS_TEST_USERNAME)
+export TEST_PASSWORD=$(cat ~/secrets/ATTACHMENT_CLIENT_SIGS_TEST_PASSWORD)
+alias rancher=/Users/luisgomez/rancher/rancher
 
+#############
+# Misc      #
+#############
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+
+# Make ASDF ruby gets discovered earlier than mac built in ruby
 export PATH="/Users/luisgomez/.asdf/shims/ruby:$PATH"
-
-# Wk signals tests
-export TEST_URL=$(cat ~/secrets/ATTACHMENT_CLIENT_SIGS_TEST_URL)
-export TEST_USERNAME=$(cat ~/secrets/ATTACHMENT_CLIENT_SIGS_TEST_USERNAME)
-export TEST_PASSWORD=$(cat ~/secrets/ATTACHMENT_CLIENT_SIGS_TEST_PASSWORD)
-
-alias rancher=/Users/luisgomez/rancher/rancher
- 
