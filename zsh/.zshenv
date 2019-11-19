@@ -291,9 +291,6 @@ function update_config() {
 
 alias w_screensaver="/Users/luisgomez/miniconda3/envs/scrape/bin/python /Users/luisgomez/Documents/code/py/w_screensaver/stock_price_screensaver_mac.py"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
 # Workiva onboarding-tools
 export PATH="$PATH:$HOME/onboarding-tools/bin"
 export ARTIFACTORY_PRO_USER=$(cat ~/secrets/ARTIFACTORY_PRO_USER)
@@ -313,6 +310,7 @@ export DRYDOCK_PROD_PASS=$(cat ~/secrets/drydock_prod_pass)
 # asdf
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+export PATH="/Users/luisgomez/.asdf/shims/ruby:$PATH"
 
 # Wk signals tests
 export TEST_URL=$(cat ~/secrets/ATTACHMENT_CLIENT_SIGS_TEST_URL)
