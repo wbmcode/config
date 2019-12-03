@@ -46,19 +46,20 @@ echo -e "\e[2;49;37m
 # misc exports
 #######################
 export ANDROID_HOME=$HOME/Library/Android/sdk
+export EC2_USER="ubuntu"
+export EC2_KEYFILE_PATH=~/.ssh/luisgomez.pem
+export EC2_INSTANCE_ID=$(cat ~/secrets/EC2_INSTANCE_ID)
+export GO111MODULE="on"
+export GOPATH=$HOME/go
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH="$PATH:$HOME/miniconda3/bin"
-export GOPATH=$HOME/go
 export PATH=$PATH:~/flutter/bin
 export PATH="$PATH":"$GOPATH/bin"
 export PATH=$PATH:~/.pub-cache/bin
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
-export EC2_USER="ubuntu"
-export EC2_KEYFILE_PATH=~/.ssh/luisgomez.pem
-export EC2_INSTANCE_ID=$(cat ~/secrets/EC2_INSTANCE_ID)
 export VIM_RUNTIME=$HOME/.config/nvim/.vim_runtime
 
 ###############
@@ -326,5 +327,3 @@ alias rancher=/Users/luisgomez/rancher/rancher
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
 
-# Make ASDF ruby gets discovered earlier than mac built in ruby
-export PATH="/Users/luisgomez/.asdf/shims/ruby:$PATH"
