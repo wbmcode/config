@@ -52,7 +52,6 @@ export EC2_INSTANCE_ID=$(cat ~/secrets/EC2_INSTANCE_ID)
 export GO111MODULE="on"
 export GOPRIVATE="github.com/Workiva/*"
 export GOPATH=$HOME/go
-export GOROOT=$HOME/go/src
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
