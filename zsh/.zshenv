@@ -101,7 +101,9 @@ alias jshell="~/jdk-12.jdk/Home/bin/jshell"
 alias idea="open -a /Applications/IntelliJ\ IDEA.app"
 alias gitlog="git log --oneline"
 alias gitlit="git log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all"
-alias  ngrok=~/ngrok
+alias ngrok=~/ngrok
+alias wslmountd='sudo mount -t drvfs D: /mnt/d'
+alias cdpremiere='cd "/mnt/d/My Documents/Adobe/_PremiereProjects_/PremiereProjs2019"'
 
 #################################################
 # DART STUFF                                    #
