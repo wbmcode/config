@@ -1,13 +1,29 @@
+############
+# ZSH INIT #
+############
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-
-export FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD="zcda-kipz-kuhh-pbah"
 ZSH_THEME="theone"
 plugins=(
   git
 )
 source $ZSH/oh-my-zsh.sh
+############
 
+# print this welcome message only the first time i login
+function printMyCrown() {
+  # if crownfile dont exist (bash test expression), make it and fill it with text to show the crown
+  if [ ! -f ~/crownfile ]; then
+    echo "no crownfile"
+    touch ~/crownfile
+    echo "show" > ~/crownfile
+  fi
+
+  if [ $(cat ~/crownfile) != "show" ]; then
+    # if crownfile doesn't say show, dont show the crown
+    return
+  else
+    # if it does say show, you'd better show the damn crown
 echo -e "\e[1;49;33m                                                      ,@.
                              @@                       @@%.
                             .@@@                    .&@@%.
@@ -42,6 +58,12 @@ echo -e "\e[2;49;37m
                           /   (_(__(_/_)_
                          (_____
 "
+  # prevent from showing again till crownfile is either deleted or modified to say "show" again
+  echo "nomoshow" > ~/crownfile
+  fi;
+}
+printMyCrown
+
 ######################
 # misc exports
 #######################
@@ -319,6 +341,11 @@ export TEST_URL=$(cat ~/secrets/ATTACHMENT_CLIENT_SIGS_TEST_URL)
 export TEST_USERNAME=$(cat ~/secrets/ATTACHMENT_CLIENT_SIGS_TEST_USERNAME)
 export TEST_PASSWORD=$(cat ~/secrets/ATTACHMENT_CLIENT_SIGS_TEST_PASSWORD)
 alias rancher=/Users/luisgomez/rancher/rancher
+
+##########
+#  Mood  #
+##########
+export FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD=$(cat ~/secrets/FASTLANE_APPLICATION_SPECIFIC_PASSWORD)
 
 #############
 # Misc      #
