@@ -14,7 +14,6 @@ source $ZSH/oh-my-zsh.sh
 function printMyCrown() {
   # if crownfile dont exist (bash test expression), make it and fill it with text to show the crown
   if [ ! -f ~/crownfile ]; then
-    echo "no crownfile"
     touch ~/crownfile
     echo "show" > ~/crownfile
   fi
