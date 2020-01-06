@@ -173,6 +173,19 @@ function d2() {
 }
 
 
+# make sure WSL never touches my windows fluter
+# WARNING: this WILL fux stuff up on an actual linux machine
+function aliasFlutter() {
+	case `uname` in
+		Linux)
+      alias flutter="echo uh-uh honey"
+			;;
+		*)
+			;;
+	esac
+}
+aliasFlutter
+
 ####################
 # Helper Functions #
 ####################
