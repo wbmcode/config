@@ -70,7 +70,7 @@ export ANDROID_HOME=$HOME/Library/Android/sdk
 export EC2_USER="ubuntu"
 export EC2_KEYFILE_PATH=~/.ssh/luisgomez.pem
 export EC2_INSTANCE_ID=$(cat ~/secrets/EC2_INSTANCE_ID)
-export GO111MODULE="on"
+export GO111MODULE="auto"
 export GOPRIVATE="github.com/Workiva/*"
 export GOPATH=$HOME/go
 export PATH=$PATH:$ANDROID_HOME/emulator
@@ -80,7 +80,6 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH="$PATH:$HOME/miniconda3/bin"
 export PATH=$PATH:~/flutter/bin
 export PATH="$PATH":"$GOPATH/bin"
-export PATH=$PATH:~/.pub-cache/bin
 export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"
 export VIM_RUNTIME=$HOME/.config/nvim/.vim_runtime
 
@@ -129,6 +128,9 @@ alias cdpremiere='cd "/mnt/d/My Documents/Adobe/_PremiereProjects_/PremiereProjs
 #################################################
 # DART STUFF                                    #
 #################################################
+# Allows you to run publink instead of pub global run publink
+export PATH=$PATH:~/.pub-cache/bin
+
 # Path to Dart 2 executables
 export DART_2_PATH='/Users/luisgomez/.asdf/installs/dart/2.4.0/dart-sdk/bin'
 # Or, if you have an old install of Dart 1 that didn't use dart@1:
